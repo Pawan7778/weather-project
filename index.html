@@ -1,17 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weatherapp</title>
-</head>
-<body>
-    <form action="/" method="post">
-        <label for="cityinput">CityName: </label>
-        <input type="text" id="cityinput" name="CityName">
-        <button type="submit">GO</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/f7d8d3cba3.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Wheather seach</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-image: linear-gradient(90deg, #3106f1, #b2a9d8);
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        display: flex;
+        /* flex-direction:column; */
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+      }
+      .search {
+        position: relative;
+        height: 50px;
+      }
+      .input {
+        background-color: #fff;
+        border: 0;
+        font-size: 18px;
+        padding: 15px;
+        height: 50px;
+        width: 50px;
+        transition: width 0.3s ease;
+      }
+      .btn {
+        background-color: #fff;
+        border: 0;
+        cursor: pointer;
+        font-size: 24px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        transition: transform 0.3s ease;
+      }
+      .btn:focus,
+      .input:focus {
+        outline: none;
+      }
 
-    </form>
-</body>
+      .search.active .input {
+        width: 200px;
+      }
+      .search.active .btn {
+        transform: translateX(198px);
+      }
+    </style>
+  </head>
+  <body>
+      <div style="margin-right: 10px;">
+          <h2>Enter City Name : </h2>
+      </div>
+    <div class="search active">
+      <form action="/" method="post">
+        <input
+          type="text"
+          class="input"
+          placeholder="Search.."
+          name="CityName"
+        />
+        <button class="btn" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </body>
 </html>
