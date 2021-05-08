@@ -27,10 +27,11 @@ app.post('/', function(req, res) {
             const weatherdescriptions = weatherdata.weather[0].description
             const icon = weatherdata.weather[0].icon
             const imageURL = `https://openweathermap.org/img/wn/${icon}@2x.png`
-            res.write(`<p>The weather Description is ${weatherdescriptions}</p>`);
-            res.write(`<h1>The temprature in ${query} is ${temp} degree celcius.</h1>`);  /*we can only have one send here beacause its mean end, so we use res.write*/
-            res.write(`<img src=${imageURL}>`)
-            res.send()
+                
+                res.write(`<p style="align-items: center;">The weather Description is ${weatherdescriptions}</p>`);
+                res.write(`<h1 style="align-items: center; justify-content: center">The temprature in ${query} is ${temp} degree celcius.</h1>`);  /*we can only have one send here beacause its mean end, so we use res.write*/
+                res.write(`<img style="background:pink;" src=${imageURL}>`)
+                res.send()
         })
     })    
 })
