@@ -3,6 +3,8 @@ const app = express()
 const https = require('https')
 const bodyParser = require('body-parser')
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.urlencoded({extended: true}))
 
 
@@ -28,10 +30,12 @@ app.post('/', function(req, res) {
             const icon = weatherdata.weather[0].icon
             const imageURL = `https://openweathermap.org/img/wn/${icon}@2x.png`
                 
-                res.write(`<p style="align-items: center;">The weather Description is ${weatherdescriptions}</p>`);
-                res.write(`<h1 style="align-items: center; justify-content: center">The temprature in ${query} is ${temp} degree celcius.</h1>`);  /*we can only have one send here beacause its mean end, so we use res.write*/
-                res.write(`<img style="background:pink;" src=${imageURL}>`)
-                res.send()
+                // res.write(`<p>The weather Description is ${weatherdescriptions}</p>`);
+                // res.write(`<h1>The temprature in ${query} is ${temp} degree celcius.</h1>`);  /*we can only have one send here beacause its mean end, so we use res.write*/
+                // res.write(`<img src=${imageURL}>`)
+                // res.send()
+                res.render("detail",
+                {Desc: weatherdescriptions,City: query, temprature: temp , img: imageURL});
         })
     })    
 })
